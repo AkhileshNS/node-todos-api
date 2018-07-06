@@ -14,8 +14,8 @@ MongoClient.connect(`mongodb://${config.path}/${config.name}`, (err, db) => {
 
     console.log(`Connected to database`);
 
-    /* db.db().collection(config.todos).insertOne({
-        text: `Complete MongoDB for NodeJS course`,
+    db.db().collection(config.todos).insertOne({
+        text: `Learn NodeJS`,
         completed: false
     }, (err, result) => {
         if (err) {
@@ -23,9 +23,9 @@ MongoClient.connect(`mongodb://${config.path}/${config.name}`, (err, db) => {
         }
 
         console.log(JSON.stringify(result.ops, undefined, 2));
-    }) */
+    }) 
 
-    db.db().collection(config.users).insertOne({
+    /* db.db().collection(config.users).insertOne({
         name: `Akhilesh`,
         age: 20,
         location: `Bangalore`
@@ -35,7 +35,7 @@ MongoClient.connect(`mongodb://${config.path}/${config.name}`, (err, db) => {
         }
 
         console.log(JSON.stringify(result.ops, undefined, 2));
-    })
+    }) */
 
     db.close();
 })
