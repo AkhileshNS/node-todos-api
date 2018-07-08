@@ -15,6 +15,7 @@ var port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
+// Todos
 //CREATE
 app.post('/todos', (req, res) => {
     var todo = new Todo({
@@ -95,6 +96,19 @@ app.delete('/todos/:id', (req, res) => {
 
         res.send({todo});
     }).catch((e) => res.status(400).send());
+});
+
+// Users
+//CREATE
+app.post('/users', (req, res) => {
+    var body = _.pick(req.body, ['email','password']);
+    var user = new User(body);
+
+    user.save().then((user) => {
+        var token = user.generateAuthToken();
+        res.header('x-auth', token).send(user);
+
+    }).catch((e) => res.status(404).send(e));
 });
 
 app.listen(port, () => {
