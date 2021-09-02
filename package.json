@@ -20,7 +20,7 @@
     "lodash": "^4.17.15",
     "mongodb": "^3.4.0",
     "mongoose": "^5.8.1",
-    "mpath": "^0.5.1",
+    "mpath": "^0.8.4",
     "validator": "^10.4.0"
   },
   "devDependencies": {
